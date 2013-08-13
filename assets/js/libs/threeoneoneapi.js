@@ -4,7 +4,8 @@
  */
 
 var ThreeOneOneApi = function () {
-  this.MONGOHQ_API_BASE_URI = 'https://api.mongohq.com/databases/chicago/collections/'
+//  this.MONGOHQ_API_BASE_URI = 'https://api.mongohq.com/databases/chicago/collections/'
+  this.MONGOHQ_API_BASE_URI = 'http://311dailydata.localhost/'
 };
 
 ThreeOneOneApi.prototype = {
@@ -67,10 +68,12 @@ ThreeOneOneApi.prototype = {
     // keep calling until we cannot get any more data from API
     $.getJSON(dataUri, function(data) {
       if (data.length > 0) { 
+console.dir(data);
         $.merge(results, data);
         callback(results, caller);
         skipCount += 100;
-        self._find(collection, query, results, skipCount, callback, finalize, caller);
+//        self._find(collection, query, results, skipCount, callback, finalize, caller);
+        finalize(caller); // no more data, alert the caller
       } else {
         finalize(caller); // no more data, alert the caller
       }
