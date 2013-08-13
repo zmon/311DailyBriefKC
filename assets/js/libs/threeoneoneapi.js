@@ -4,7 +4,7 @@
  */
 
 var ThreeOneOneApi = function () {
-//  this.MONGOHQ_API_BASE_URI = 'https://api.mongohq.com/databases/chicago/collections/'
+  this.MONGOHQ_API_BASE_URI = 'https://api.mongohq.com/databases/chicago/collections/'
   this.MONGOHQ_API_BASE_URI = 'http://311dailydata.localhost/'
 };
 
